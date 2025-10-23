@@ -1,5 +1,5 @@
 ![Java](https://img.shields.io/badge/Java-17%2B-orange) ![License: Free Use](https://img.shields.io/badge/License-Free--Use-green) ![Patika.dev](https://img.shields.io/badge/Patika.dev-Project-blue)  
-![GitHub stars](https://img.shields.io/github/stars/ayhan-unlu/PatikaAdvancedJavaProjects?style=social) ![GitHub forks](https://img.shields.io/github/forks/ayhan-unlu/PatikaAdvancedJavaProjects?style=social) ![GitHub last commit](https://img.shields.io/github/last-commit/ayhan-unlu/HumanResourcesProject)
+![GitHub stars](https://img.shields.io/github/stars/ayhan-unlu/PatikaAdvancedJavaProjects?style=social) ![GitHub forks](https://img.shields.io/github/forks/ayhan-unlu/PatikaAdvancedJavaProjects?style=social) ![GitHub last commit](https://img.shields.io/github/last-commit/ayhan-unlu/HumanResources)
 
 
 ⚠️ **WARNING: PROJECT IN PROGRESS** ⚠️
@@ -127,6 +127,24 @@ com.ayhanunlu.humanresources
 | 6 | Thymeleaf UI | ⏳ Pending |
 | 7 | UML & Documentation | ⏳ Pending |
 
+## 📸 ScreenShots
+>
+> >
+> 
+> > ![Screenshot 2025-10-23 at 13.46.00.png](docs/images/Screenshot%202025-10-23%20at%2013.46.00.png)
+> 
+> > ![Screenshot 2025-10-23 at 13.37.08.png](docs/images/Screenshot%202025-10-23%20at%2013.37.08.png)
+>
+> >
+> 
+> >
+>
+> >
+>
+>>
+>
+>>
+>
 ## 🧰 Future Improvements
 - Add performance evaluation module
 - Add leave balance and salary history

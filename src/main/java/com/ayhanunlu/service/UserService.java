@@ -5,5 +5,8 @@ import com.ayhanunlu.data.entity.UserEntity;
 
 public interface UserService {
 
-    UserEntity createEmployee(UserDto userDto);
+   // void registerNewUser(String username, String password);
+    void registerNewUser(UserDto userDto);
+    UserDto addUserDtoDetails(String username, String password);
+    void saveEmployeeToDb(UserDto userDto);
 }
