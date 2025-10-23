@@ -18,7 +18,7 @@ public class BaseEntity {
     private Long id;
 
     @Column(name="created_by")
-    @CreatedBy
+//    @CreatedBy
     private String createdBy;
 
     @Column(name="created_date")
@@ -26,7 +26,7 @@ public class BaseEntity {
     private LocalDateTime createdDate;
 
     @Column(name="updated_by")
-    @LastModifiedBy
+//    @LastModifiedBy
     private String updatedBy;
 
     @Column(name="updated_date")
