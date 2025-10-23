@@ -1,6 +1,25 @@
 ![Java](https://img.shields.io/badge/Java-17%2B-orange) ![License: Free Use](https://img.shields.io/badge/License-Free--Use-green) ![Patika.dev](https://img.shields.io/badge/Patika.dev-Project-blue)  
 ![GitHub stars](https://img.shields.io/github/stars/ayhan-unlu/PatikaAdvancedJavaProjects?style=social) ![GitHub forks](https://img.shields.io/github/forks/ayhan-unlu/PatikaAdvancedJavaProjects?style=social) ![GitHub last commit](https://img.shields.io/github/last-commit/ayhan-unlu/HumanResourcesProject)
 
+
+⚠️ **WARNING: PROJECT IN PROGRESS** ⚠️
+
+> This Human Resources Project is currently under development.  
+> Features such as user registration, login, employee management, and role-based access are still being implemented.  
+> Expect frequent updates and changes. Use at your own discretion.
+
+---
+
+🔧 **Current Status:**
+- [x] Project setup with Spring Boot and database connection
+- [x] Basic Thymeleaf login page
+- [ ] Complete user registration
+- [ ] Role-based access control
+- [ ] Employee management features
+- [ ] Logging and auditing
+
+Please check back for updates as development continues! 🚧
+
 # Patika.dev Java Human Resources Project
 
 ## 🧩 Description
