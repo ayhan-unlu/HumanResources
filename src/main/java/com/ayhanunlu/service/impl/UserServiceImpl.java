@@ -61,9 +61,23 @@ public class UserServiceImpl implements UserService {
             userEntity.setCreatedBy(userEntity.getUsername());
             userEntity.setUpdatedBy(userEntity.getUsername());
             userRepository.save(userEntity);
+            saveDefaultEmployeeDetailsToDb(userEntity);
             return true;
         } else return false;
     }
+
+    @Override
+    public void saveDefaultEmployeeDetailsToDb(UserEntity userEntity) {
+        EmployeeDetailsEntity employeeDetailsEntity = new EmployeeDetailsEntity();
+        employeeDetailsEntity.setUserEntity(userEntity);
+        employeeDetailsEntity.setCreatedBy(userEntity.getUsername());
+        employeeDetailsEntity.setUpdatedBy(userEntity.getUsername());
+        employeeDetailsEntity.setSalary(0);
+        employeeDetailsEntity.setLeaveDate(null);
+        employeeDetailsEntity.setLeaveDuration(0);
+        employeeDetailsRepository.save(employeeDetailsEntity);
+    }
+
 
     @Override
     public LoginResult login(UserDto userDto) {
@@ -110,9 +124,12 @@ public class UserServiceImpl implements UserService {
 
     public void setStatusBlocked(UserDto userDto) {
         UserEntity userEntity = userRepository.findByUsername(userDto.getUsername());
-        if(userEntity!=null){userEntity.setStatus(Status.BLOCKED);
-        userRepository.save(userEntity);
-    }else{}}
+        if (userEntity != null) {
+            userEntity.setStatus(Status.BLOCKED);
+            userRepository.save(userEntity);
+        } else {
+        }
+    }
 
     @Override
     public UserSessionDto prepareUserSessionDto(UserEntity userEntity) {

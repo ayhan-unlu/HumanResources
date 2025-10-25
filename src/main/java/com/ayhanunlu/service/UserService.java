@@ -12,6 +12,7 @@ public interface UserService {
     void createDefaultAdmin();
     boolean registerNewUser(UserDto userDto);
     boolean saveEmployeeToDb(UserDto userDto);
+    void saveDefaultEmployeeDetailsToDb(UserEntity userEntity);
     LoginResult login(UserDto userDto);
     void setStatusBlocked(UserDto userDto);
     UserSessionDto prepareUserSessionDto(UserEntity userEntity);

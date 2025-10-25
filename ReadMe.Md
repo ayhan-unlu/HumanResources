@@ -13,7 +13,7 @@
 🔧 **Current Status:**
 - [x] Project setup with Spring Boot and database connection
 - [x] Basic Thymeleaf login page
-- [ ] Complete user registration
+- [x] Complete user registration
 - [ ] Role-based access control
 - [ ] Employee management features
 - [ ] Logging and auditing

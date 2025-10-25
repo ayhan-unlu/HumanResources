@@ -77,15 +77,15 @@ public class ThymeleafController {
             case SUCCESS:
                 httpSession.setAttribute("loginAttempts", 0);
                 UserEntity userEntity = loginResult.getUserEntity();
-                UserSessionDto userSessionDto = userService.prepareUserSessionDto(userEntity);
                 httpSession.removeAttribute("userDto");
-                httpSession.setAttribute("userSessionDto", userSessionDto);
-                model.addAttribute("userSessionDto", userSessionDto);
 
                 httpSession.setAttribute("userEntity", loginResult.getUserEntity());
                 if (loginResult.getUserEntity().getRole().equals(Role.ADMIN)) {
                     return "admin_dashboard";
                 } else {
+                UserSessionDto userSessionDto = userService.prepareUserSessionDto(userEntity);
+                    httpSession.setAttribute("userSessionDto", userSessionDto);
+                    model.addAttribute("userSessionDto", userSessionDto);
                     return "employee_dashboard";
                 }
 
