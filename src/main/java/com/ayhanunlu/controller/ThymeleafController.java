@@ -2,6 +2,7 @@ package com.ayhanunlu.controller;
 
 import com.ayhanunlu.data.dto.LoginResult;
 import com.ayhanunlu.data.dto.UserDto;
+import com.ayhanunlu.data.dto.UserSessionDto;
 import com.ayhanunlu.data.entity.UserEntity;
 import com.ayhanunlu.enums.Role;
 import com.ayhanunlu.repository.UserRepository;
@@ -75,16 +76,25 @@ public class ThymeleafController {
         switch (loginResult.getLoginResponse()) {
             case SUCCESS:
                 httpSession.setAttribute("loginAttempts", 0);
-                httpSession.setAttribute("user_entity", loginResult.getUserEntity());
+                UserEntity userEntity = loginResult.getUserEntity();
+                UserSessionDto userSessionDto = userService.prepareUserSessionDto(userEntity);
+                httpSession.removeAttribute("userDto");
+                httpSession.setAttribute("userSessionDto", userSessionDto);
+                model.addAttribute("userSessionDto", userSessionDto);
+
+                httpSession.setAttribute("userEntity", loginResult.getUserEntity());
                 if (loginResult.getUserEntity().getRole().equals(Role.ADMIN)) {
                     return "admin_dashboard";
                 } else {
                     return "employee_dashboard";
                 }
+
             case NO_SUCH_USER:
                 model.addAttribute("errorMessage", " No Such User. Please Try Again.");
+                break;
             case BLOCKED:
                 model.addAttribute("errorMessage", " User is Blocked. Please Contact Admin.");
+                break;
             case FAIL:
                 loginAttempts++;
                 httpSession.setAttribute("loginAttempts", loginAttempts);
@@ -93,7 +103,7 @@ public class ThymeleafController {
                     model.addAttribute("errorMessage", "User is blocked. Cause of 3 wrong login attempts.");
                 } else {
                     model.addAttribute("errorMessage", "Wrong Password. Please Try Again." + (3 - loginAttempts) + " attempts left");
-                }
+                }break;
         }
         return "login";
     }

@@ -2,11 +2,14 @@ package com.ayhanunlu.service.impl;
 
 import com.ayhanunlu.data.dto.LoginResult;
 import com.ayhanunlu.data.dto.UserDto;
+import com.ayhanunlu.data.dto.UserSessionDto;
+import com.ayhanunlu.data.entity.EmployeeDetailsEntity;
 import com.ayhanunlu.data.entity.UserEntity;
 import com.ayhanunlu.enums.LoginResponse;
 import com.ayhanunlu.enums.Role;
 import com.ayhanunlu.enums.Status;
 import com.ayhanunlu.mapper.UserMapper;
+import com.ayhanunlu.repository.EmployeeDetailsRepository;
 import com.ayhanunlu.repository.UserRepository;
 import com.ayhanunlu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private EmployeeDetailsRepository employeeDetailsRepository;
 
     @Autowired
     private UserMapper userMapper;
@@ -57,7 +62,7 @@ public class UserServiceImpl implements UserService {
             userEntity.setUpdatedBy(userEntity.getUsername());
             userRepository.save(userEntity);
             return true;
-        }else return false;
+        } else return false;
     }
 
     @Override
@@ -79,7 +84,7 @@ public class UserServiceImpl implements UserService {
 
     public LoginResponse controlUserEntity(UserEntity userEntity) {
         if (userEntity == null) {
-            return LoginResponse.FAIL;
+            return LoginResponse.NO_SUCH_USER;
         }
         if (userEntity.getStatus().equals(Status.BLOCKED)) {
             return LoginResponse.BLOCKED;
@@ -105,8 +110,30 @@ public class UserServiceImpl implements UserService {
 
     public void setStatusBlocked(UserDto userDto) {
         UserEntity userEntity = userRepository.findByUsername(userDto.getUsername());
-        userEntity.setStatus(Status.BLOCKED);
+        if(userEntity!=null){userEntity.setStatus(Status.BLOCKED);
         userRepository.save(userEntity);
+    }else{}}
+
+    @Override
+    public UserSessionDto prepareUserSessionDto(UserEntity userEntity) {
+        UserSessionDto userSessionDto = new UserSessionDto();
+        userSessionDto.setUserId(userEntity.getId());
+        userSessionDto.setUsername(userEntity.getUsername());
+        EmployeeDetailsEntity employeeDetailsEntity = getEmployeeDetailsEntity(userEntity);
+        userSessionDto.setDetailId(employeeDetailsEntity.getId());
+        userSessionDto.setRole(userEntity.getRole());
+        userSessionDto.setStatus(userEntity.getStatus());
+        userSessionDto.setSalary(employeeDetailsEntity.getSalary());
+        userSessionDto.setLeaveDate(employeeDetailsEntity.getLeaveDate());
+        userSessionDto.setLeaveDuration(employeeDetailsEntity.getLeaveDuration());
+
+        ///  details still not completed
+        return userSessionDto;
+    }
+
+    @Override
+    public EmployeeDetailsEntity getEmployeeDetailsEntity(UserEntity userEntity) {
+        return employeeDetailsRepository.findByUserEntity(userEntity);
     }
 
 }

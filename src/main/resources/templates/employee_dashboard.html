@@ -13,8 +13,18 @@
 
 <div class="container mt-5">
     <h1 class="text-center">
-        <span th:text="'Employee '+ ${userDto.username} + ' Welcome to DashBoard'"></span>
+        <span th:text="'Employee '+ ${userSessionDto.username} + ' Welcome to DashBoard'"></span>
     </h1>
+
+    <h2 th:text="'Employee Details'"></h2>
+    <h3 th:text="'User Id: ' + ${userSessionDto.userId}"></h3>
+    <h3 th:text="'Username: '+${userSessionDto.username}"></h3>
+    <h3 th:text="'Employee Detail Id: '+${userSessionDto.detailId}"></h3>
+    <h3 th:text="'Role : '+${userSessionDto.role}"></h3>
+    <h3 th:text="'Status: '+${userSessionDto.status}"></h3>
+    <h3 th:text="'Salary: '+${userSessionDto.salary}"></h3>
+    <h3 th:text="'Leave Date: ' +${userSessionDto.leaveDate}"></h3>
+    <h3 th:text="'Leave Duration: '+${userSessionDto.leaveDuration}"></h3>
 </div>
 
 <div>
@@ -34,4 +44,5 @@
 </div>
 
 </body>
+
 </html>
