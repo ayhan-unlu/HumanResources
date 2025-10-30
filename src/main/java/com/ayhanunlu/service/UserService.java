@@ -1,5 +1,6 @@
 package com.ayhanunlu.service;
 
+import com.ayhanunlu.data.dto.AdminSessionDto;
 import com.ayhanunlu.data.dto.LoginResult;
 import com.ayhanunlu.data.dto.UserDto;
 import com.ayhanunlu.data.dto.UserSessionDto;
@@ -16,5 +17,6 @@ public interface UserService {
     LoginResult login(UserDto userDto);
     void setStatusBlocked(UserDto userDto);
     UserSessionDto prepareUserSessionDto(UserEntity userEntity);
+    AdminSessionDto prepareAdminSessionDto(UserEntity userEntity);
     EmployeeDetailsEntity getEmployeeDetailsEntity(UserEntity userEntity);
 }

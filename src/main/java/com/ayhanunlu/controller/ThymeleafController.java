@@ -1,5 +1,6 @@
 package com.ayhanunlu.controller;
 
+import com.ayhanunlu.data.dto.AdminSessionDto;
 import com.ayhanunlu.data.dto.LoginResult;
 import com.ayhanunlu.data.dto.UserDto;
 import com.ayhanunlu.data.dto.UserSessionDto;
@@ -81,9 +82,13 @@ public class ThymeleafController {
 
                 httpSession.setAttribute("userEntity", loginResult.getUserEntity());
                 if (loginResult.getUserEntity().getRole().equals(Role.ADMIN)) {
+                    AdminSessionDto adminSessionDto = userService.prepareAdminSessionDto(userEntity);
+                    httpSession.setAttribute("adminSessionDto",adminSessionDto);
+                    model.addAttribute("adminSessionDto",adminSessionDto);
+
                     return "admin_dashboard";
                 } else {
-                UserSessionDto userSessionDto = userService.prepareUserSessionDto(userEntity);
+                    UserSessionDto userSessionDto = userService.prepareUserSessionDto(userEntity);
                     httpSession.setAttribute("userSessionDto", userSessionDto);
                     model.addAttribute("userSessionDto", userSessionDto);
                     return "employee_dashboard";
@@ -103,7 +108,8 @@ public class ThymeleafController {
                     model.addAttribute("errorMessage", "User is blocked. Cause of 3 wrong login attempts.");
                 } else {
                     model.addAttribute("errorMessage", "Wrong Password. Please Try Again." + (3 - loginAttempts) + " attempts left");
-                }break;
+                }
+                break;
         }
         return "login";
     }

@@ -1,5 +1,6 @@
 package com.ayhanunlu.service.impl;
 
+import com.ayhanunlu.data.dto.AdminSessionDto;
 import com.ayhanunlu.data.dto.LoginResult;
 import com.ayhanunlu.data.dto.UserDto;
 import com.ayhanunlu.data.dto.UserSessionDto;
@@ -134,7 +135,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserSessionDto prepareUserSessionDto(UserEntity userEntity) {
         UserSessionDto userSessionDto = new UserSessionDto();
-        userSessionDto.setUserId(userEntity.getId());
+        userSessionDto.setId(userEntity.getId());
         userSessionDto.setUsername(userEntity.getUsername());
         EmployeeDetailsEntity employeeDetailsEntity = getEmployeeDetailsEntity(userEntity);
         userSessionDto.setDetailId(employeeDetailsEntity.getId());
@@ -146,6 +147,16 @@ public class UserServiceImpl implements UserService {
 
         ///  details still not completed
         return userSessionDto;
+    }
+
+    @Override
+    public AdminSessionDto prepareAdminSessionDto(UserEntity userEntity){
+        AdminSessionDto adminSessionDto = new AdminSessionDto();
+        adminSessionDto.setId(userEntity.getId());
+        adminSessionDto.setUsername(userEntity.getUsername());
+        adminSessionDto.setRole(userEntity.getRole());
+        adminSessionDto.setStatus(userEntity.getStatus());
+        return adminSessionDto;
     }
 
     @Override
