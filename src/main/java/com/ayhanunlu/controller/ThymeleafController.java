@@ -86,6 +86,7 @@ public class ThymeleafController {
                     httpSession.setAttribute("adminSessionDto",adminSessionDto);
                     model.addAttribute("adminSessionDto",adminSessionDto);
 
+
                     return "admin_dashboard";
                 } else {
                     UserSessionDto userSessionDto = userService.prepareUserSessionDto(userEntity);

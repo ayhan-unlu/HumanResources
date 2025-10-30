@@ -17,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -62,7 +64,7 @@ public class UserServiceImpl implements UserService {
             userEntity.setCreatedBy(userEntity.getUsername());
             userEntity.setUpdatedBy(userEntity.getUsername());
             UserEntity admin = userRepository.findById(1L)
-                            .orElseThrow(()->new RuntimeException("Admin with Id 1 not found"));
+                    .orElseThrow(() -> new RuntimeException("Admin with Id 1 not found"));
             userEntity.setAdmin(admin);
             userRepository.save(userEntity);
             saveDefaultEmployeeDetailsToDb(userEntity);
@@ -85,19 +87,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public LoginResult login(UserDto userDto) {
-//      }
+        LoginResult loginResult = getLoginResult(userDto);
+        if (loginResult.getLoginResponse() == LoginResponse.SUCCESS) {
+            UserEntity userEntity = loginResult.getUserEntity();
+            if(userEntity.getRole()==Role.ADMIN){
+                getAllEmployeesByAdmin(userEntity);
+            }
 
-
-
-       /* UserEntity userEntity = userRepository.findByUsername(userDto.getUsername());
-
-        if ((userEntity != null) && passwordEncoder.matches(userDto.getPassword(), userEntity.getPassword())) {
-            UserDto loggedInUserDto = userMapper.fromUserEntityToUserDto(userEntity);
-            userDto.setPassword(null);
-            return loggedInUserDto;
         }
-        */
-        return getLoginResult(userDto);
+        return loginResult;
     }
 
     public LoginResponse controlUserEntity(UserEntity userEntity) {
@@ -153,7 +151,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public AdminSessionDto prepareAdminSessionDto(UserEntity userEntity){
+    public AdminSessionDto prepareAdminSessionDto(UserEntity userEntity) {
         AdminSessionDto adminSessionDto = new AdminSessionDto();
         adminSessionDto.setId(userEntity.getId());
         adminSessionDto.setUsername(userEntity.getUsername());
@@ -165,6 +163,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public EmployeeDetailsEntity getEmployeeDetailsEntity(UserEntity userEntity) {
         return employeeDetailsRepository.findByUserEntity(userEntity);
+    }
+
+    @Override
+    public List<UserEntity> getAllEmployeesByAdmin(UserEntity admin) {
+        List<UserEntity> employeeList = userRepository.findAllByAdmin(admin);
+        for (UserEntity userEntity : employeeList) {
+            System.out.println(userEntity.getId());
+            System.out.println(userEntity.getUsername());
+        }
+        return employeeList;
     }
 
 }
