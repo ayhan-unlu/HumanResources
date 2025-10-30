@@ -29,5 +29,4 @@ public class EmployeeDetailsEntity extends BaseEntity implements Serializable {
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private UserEntity userEntity;
 
-
 }

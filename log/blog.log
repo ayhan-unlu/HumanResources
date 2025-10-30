@@ -11869,3 +11869,101 @@ org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property o
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
 	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
 
+2025-10-30T16:36:55.473+03:00  INFO 7329 --- [HumanResources] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2025-10-30T16:36:55.476+03:00  INFO 7329 --- [HumanResources] [Thread-26] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-30T16:36:55.480+03:00  INFO 7329 --- [HumanResources] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-30T16:36:55.483+03:00  INFO 7329 --- [HumanResources] [Thread-26] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-30T16:36:55.484+03:00  INFO 7329 --- [HumanResources] [Thread-26] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2025-10-30T16:36:55.485+03:00  INFO 7329 --- [HumanResources] [Thread-26] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2025-10-30T16:36:55.531+03:00  INFO 7329 --- [HumanResources] [restartedMain] c.ayhanunlu.HumanResourcesApplication    : Starting HumanResourcesApplication using Java 25 with PID 7329 (/Users/ayhanunlu/IdeaProjects/HumanResources/target/classes started by ayhanunlu in /Users/ayhanunlu/IdeaProjects/HumanResources)
+2025-10-30T16:36:55.531+03:00  INFO 7329 --- [HumanResources] [restartedMain] c.ayhanunlu.HumanResourcesApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-10-30T16:36:55.615+03:00  INFO 7329 --- [HumanResources] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-30T16:36:55.618+03:00  INFO 7329 --- [HumanResources] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 2 JPA repository interfaces.
+2025-10-30T16:36:55.654+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-30T16:36:55.654+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-30T16:36:55.654+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-30T16:36:55.657+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-10-30T16:36:55.657+03:00  INFO 7329 --- [HumanResources] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 125 ms
+2025-10-30T16:36:55.683+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-30T16:36:55.684+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-30T16:36:55.686+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-30T16:36:55.686+03:00  INFO 7329 --- [HumanResources] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2025-10-30T16:36:55.689+03:00  INFO 7329 --- [HumanResources] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@723dfb85
+2025-10-30T16:36:55.689+03:00  INFO 7329 --- [HumanResources] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2025-10-30T16:36:55.689+03:00  WARN 7329 --- [HumanResources] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-30T16:36:55.689+03:00  WARN 7329 --- [HumanResources] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-30T16:36:55.689+03:00  INFO 7329 --- [HumanResources] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-8)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-30T16:36:55.706+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-30T16:36:55.724+03:00  INFO 7329 --- [HumanResources] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-30T16:36:55.758+03:00  WARN 7329 --- [HumanResources] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-30T16:36:55.791+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-30T16:36:55.797+03:00  WARN 7329 --- [HumanResources] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 66de3f29-b8a0-4710-80cc-9e06b7097104
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-10-30T16:36:55.797+03:00  INFO 7329 --- [HumanResources] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-10-30T16:36:55.835+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-30T16:36:55.841+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-30T16:36:55.844+03:00  INFO 7329 --- [HumanResources] [restartedMain] c.ayhanunlu.HumanResourcesApplication    : Started HumanResourcesApplication in 0.321 seconds (process running for 3369.909)
+2025-10-30T16:36:55.844+03:00  INFO 7329 --- [HumanResources] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-30T17:12:23.849+03:00  WARN 7329 --- [HumanResources] [HikariPool-8:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Thread starvation or clock leap detected (housekeeper delta=57s764ms).
+2025-10-30T17:26:29.417+03:00  WARN 7329 --- [HumanResources] [HikariPool-8:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Thread starvation or clock leap detected (housekeeper delta=13m35s564ms).
+2025-10-30T17:34:10.470+03:00  WARN 7329 --- [HumanResources] [HikariPool-8:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Thread starvation or clock leap detected (housekeeper delta=7m41s53ms).
+2025-10-30T18:28:48.951+03:00  INFO 7329 --- [HumanResources] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-10-30T18:28:48.955+03:00  INFO 7329 --- [HumanResources] [Thread-30] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-30T18:28:48.958+03:00  INFO 7329 --- [HumanResources] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-30T18:28:48.961+03:00  INFO 7329 --- [HumanResources] [Thread-30] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-30T18:28:48.962+03:00  INFO 7329 --- [HumanResources] [Thread-30] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2025-10-30T18:28:48.963+03:00  INFO 7329 --- [HumanResources] [Thread-30] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2025-10-30T18:28:49.006+03:00  INFO 7329 --- [HumanResources] [restartedMain] c.ayhanunlu.HumanResourcesApplication    : Starting HumanResourcesApplication using Java 25 with PID 7329 (/Users/ayhanunlu/IdeaProjects/HumanResources/target/classes started by ayhanunlu in /Users/ayhanunlu/IdeaProjects/HumanResources)
+2025-10-30T18:28:49.007+03:00  INFO 7329 --- [HumanResources] [restartedMain] c.ayhanunlu.HumanResourcesApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-10-30T18:28:49.093+03:00  INFO 7329 --- [HumanResources] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-30T18:28:49.096+03:00  INFO 7329 --- [HumanResources] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 2 JPA repository interfaces.
+2025-10-30T18:28:49.134+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-30T18:28:49.135+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-30T18:28:49.135+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-30T18:28:49.138+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-10-30T18:28:49.138+03:00  INFO 7329 --- [HumanResources] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 130 ms
+2025-10-30T18:28:49.162+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-30T18:28:49.163+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-30T18:28:49.165+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-30T18:28:49.165+03:00  INFO 7329 --- [HumanResources] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2025-10-30T18:28:49.168+03:00  INFO 7329 --- [HumanResources] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4264425a
+2025-10-30T18:28:49.168+03:00  INFO 7329 --- [HumanResources] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2025-10-30T18:28:49.169+03:00  WARN 7329 --- [HumanResources] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-30T18:28:49.169+03:00  WARN 7329 --- [HumanResources] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-30T18:28:49.169+03:00  INFO 7329 --- [HumanResources] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-9)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-30T18:28:49.199+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-30T18:28:49.209+03:00  INFO 7329 --- [HumanResources] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-30T18:28:49.253+03:00  WARN 7329 --- [HumanResources] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-30T18:28:49.289+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-30T18:28:49.295+03:00  WARN 7329 --- [HumanResources] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: f7fefd00-c448-4817-ab59-ac100929c4a3
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-10-30T18:28:49.296+03:00  INFO 7329 --- [HumanResources] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-10-30T18:28:49.334+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-30T18:28:49.341+03:00  INFO 7329 --- [HumanResources] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-30T18:28:49.344+03:00  INFO 7329 --- [HumanResources] [restartedMain] c.ayhanunlu.HumanResourcesApplication    : Started HumanResourcesApplication in 0.347 seconds (process running for 8839.006)
+2025-10-30T18:28:49.345+03:00  INFO 7329 --- [HumanResources] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-30T18:28:53.095+03:00  INFO 7329 --- [HumanResources] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-30T18:28:53.095+03:00  INFO 7329 --- [HumanResources] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-30T18:28:53.097+03:00  INFO 7329 --- [HumanResources] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms

@@ -61,6 +61,9 @@ public class UserServiceImpl implements UserService {
             UserEntity userEntity = userMapper.fromUserDtoToUserEntity(userDto);
             userEntity.setCreatedBy(userEntity.getUsername());
             userEntity.setUpdatedBy(userEntity.getUsername());
+            UserEntity admin = userRepository.findById(1L)
+                            .orElseThrow(()->new RuntimeException("Admin with Id 1 not found"));
+            userEntity.setAdmin(admin);
             userRepository.save(userEntity);
             saveDefaultEmployeeDetailsToDb(userEntity);
             return true;
