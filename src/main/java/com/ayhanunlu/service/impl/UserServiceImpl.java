@@ -1,9 +1,6 @@
 package com.ayhanunlu.service.impl;
 
-import com.ayhanunlu.data.dto.AdminSessionDto;
-import com.ayhanunlu.data.dto.LoginResult;
-import com.ayhanunlu.data.dto.UserDto;
-import com.ayhanunlu.data.dto.UserSessionDto;
+import com.ayhanunlu.data.dto.*;
 import com.ayhanunlu.data.entity.EmployeeDetailsEntity;
 import com.ayhanunlu.data.entity.UserEntity;
 import com.ayhanunlu.enums.LoginResponse;
@@ -17,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -90,8 +88,9 @@ public class UserServiceImpl implements UserService {
         LoginResult loginResult = getLoginResult(userDto);
         if (loginResult.getLoginResponse() == LoginResponse.SUCCESS) {
             UserEntity userEntity = loginResult.getUserEntity();
-            if(userEntity.getRole()==Role.ADMIN){
-                getAllEmployeesByAdmin(userEntity);
+            if (userEntity.getRole() == Role.ADMIN) {
+//                getAllEmployeesByAdmin(userEntity);
+                getAllEmployeeInfoDto(userEntity);
             }
 
         }
@@ -175,4 +174,40 @@ public class UserServiceImpl implements UserService {
         return employeeList;
     }
 
+    @Override
+    public List<EmployeeInfoDto> getAllEmployeeInfoDto(UserEntity admin) {
+        List<EmployeeInfoDto> employeeInfoDtoList = combineUserEntityAndEmployeeDetailsEntity(admin);
+        for (EmployeeInfoDto employeeInfoDto : employeeInfoDtoList) {
+            System.out.println(employeeInfoDto.getId());
+            System.out.println(employeeInfoDto.getUsername());
+            System.out.println(employeeInfoDto.getEmployeeDetailId());
+            System.out.println(employeeInfoDto.getRole());
+            System.out.println(employeeInfoDto.getStatus());
+            System.out.println(employeeInfoDto.getSalary());
+            System.out.println(employeeInfoDto.getLeaveDate());
+            System.out.println(employeeInfoDto.getLeaveDuration());
+        }
+        return employeeInfoDtoList;
+    }
+
+    public List<EmployeeInfoDto> combineUserEntityAndEmployeeDetailsEntity(UserEntity admin) {
+        List<UserEntity> userEntityList = userRepository.findAllByAdmin(admin);
+//        List<EmployeeDetailsEntity> employeeDetailsEntityList = employeeDetailsRepository.findAllEmployeeEntity();
+        List<EmployeeInfoDto> employeeInfoDtoList = new ArrayList<>();
+
+        for (UserEntity userEntity : userEntityList) {
+            EmployeeInfoDto currentEmployeeInfoDto = new EmployeeInfoDto();
+            currentEmployeeInfoDto.setId(userEntity.getId());
+            currentEmployeeInfoDto.setUsername(userEntity.getUsername());
+            currentEmployeeInfoDto.setRole(userEntity.getRole());
+            currentEmployeeInfoDto.setStatus(userEntity.getStatus());
+            EmployeeDetailsEntity currentEmployeeDetailsEntity = getEmployeeDetailsEntity(userEntity);
+            currentEmployeeInfoDto.setEmployeeDetailId(currentEmployeeDetailsEntity.getId());
+            currentEmployeeInfoDto.setSalary(currentEmployeeDetailsEntity.getSalary());
+            currentEmployeeInfoDto.setLeaveDate(currentEmployeeDetailsEntity.getLeaveDate());
+            currentEmployeeInfoDto.setLeaveDuration(currentEmployeeDetailsEntity.getLeaveDuration());
+            employeeInfoDtoList.add(currentEmployeeInfoDto);
+        }
+        return employeeInfoDtoList;
+    }
 }
