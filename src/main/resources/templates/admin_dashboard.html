@@ -27,16 +27,39 @@
 <!--    <h3 th:text="'Leave Duration: '+${adminSessionDto.leaveDuration}"></h3>-->
 </div>
 
-<div>
-<!--    <form th:action="@{/login}" th:object="${userDto}" method="post">
-&lt;!&ndash;        <label th:text="'Username'"></label>&ndash;&gt;
-&lt;!&ndash;        <input type="text" th:field="*{username}" required/>&ndash;&gt;
-&lt;!&ndash;        <label th:text="'Password'"></label>&ndash;&gt;
-&lt;!&ndash;        <input type="password" th:field="*{password}" required/>&ndash;&gt;
-&lt;!&ndash;        <button type="submit" th:text="'Login'"></button>&ndash;&gt;
+<div class="container mt-5">
+    <h1 class="text-center" th:text="'EMPLOYEE LIST'"></h1>
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+        <tr>
+         <th th:text="'ID'"></th>
+            <th th:text="'USERNAME'"></th>
+            <th th:text="'EMPLOYEE DETAIL ID'"></th>
+            <th th:text="'ROLE'"></th>
+            <th th:text="'STATUS'"></th>
+            <th th:text="'SALARY'"></th>
+            <th th:text="'LEAVE DATE'"></th>
+            <th th:text="'LEAVE DURATION'"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employeeInfoDto : ${employeeInfoDtoList}">
+            <td th:text="${employeeInfoDto.id}"></td>
+            <td th:text="${employeeInfoDto.username}"></td>
+            <td th:text="${employeeInfoDto.employeeDetailId}"></td>
+            <td th:text="${employeeInfoDto.role}"></td>
+            <td th:text="${employeeInfoDto.status}"></td>
+            <td th:text="${employeeInfoDto.salary}"></td>
+            <td th:text="${employeeInfoDto.leaveDate}"></td>
+            <td th:text="${employeeInfoDto.leaveDuration}"></td>
+            <td>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
 
 
-    </form>-->
 </div>
 
 <div class="text-center mt-4">

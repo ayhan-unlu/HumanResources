@@ -85,6 +85,7 @@ public class ThymeleafController {
                     AdminSessionDto adminSessionDto = userService.prepareAdminSessionDto(userEntity);
                     httpSession.setAttribute("adminSessionDto",adminSessionDto);
                     model.addAttribute("adminSessionDto",adminSessionDto);
+                    model.addAttribute("employeeInfoDtoList", userService.getAllEmployeeInfoDto(loginResult.getUserEntity()));
 
 
                     return "admin_dashboard";
